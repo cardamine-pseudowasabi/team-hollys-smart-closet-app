@@ -87,10 +87,17 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void setup() {
-        Button btnSend = findViewById(R.id.rightRotate); //데이터 전송
-        btnSend.setOnClickListener(new View.OnClickListener() {
+        Button leftRotateBtn = findViewById(R.id.leftRotate); // CCW Rotate
+        Button rightRotateBtn = findViewById(R.id.rightRotate); // CW Rotate
+
+        leftRotateBtn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                bt.send("종설 Team Hollys App Test", true);
+                bt.send("left Rotate", true);
+            }
+        });
+        rightRotateBtn.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                bt.send("right Rotate", true);
             }
         });
     }

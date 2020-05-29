@@ -8,7 +8,7 @@
     tools:context="space.codejun.arduinobluetooth.MainActivity">
 
     <TextView
-        android:id="@+id/weather2"
+        android:id="@+id/WeatherInfo"
         android:layout_width="192dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -21,7 +21,7 @@
         app:layout_constraintTop_toBottomOf="@+id/divider3" />
 
     <TextView
-        android:id="@+id/humidity3"
+        android:id="@+id/HumidityData"
         android:layout_width="42dp"
         android:layout_height="27dp"
         android:layout_marginStart="8dp"
@@ -130,7 +130,7 @@
         app:layout_constraintVertical_bias="0.046" />
 
     <TextView
-        android:id="@+id/weather"
+        android:id="@+id/ClothSection"
         android:layout_width="191dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
@@ -144,11 +144,11 @@
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/divider4"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/weather2"
+        app:layout_constraintTop_toBottomOf="@+id/WeatherInfo"
         app:layout_constraintVertical_bias="0.303" />
 
     <TextView
-        android:id="@+id/Humidity"
+        android:id="@+id/DCFAN"
         android:layout_width="76dp"
         android:layout_height="27dp"
         android:layout_marginStart="8dp"
@@ -176,7 +176,7 @@
         android:textColor="@android:color/black"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/divider5"
-        app:layout_constraintStart_toEndOf="@+id/humidity3"
+        app:layout_constraintStart_toEndOf="@+id/HumidityData"
         app:layout_constraintTop_toBottomOf="@+id/divider4" />
 
     <Switch
@@ -225,7 +225,7 @@
         android:textColor="@android:color/black"
         android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/weather2"
+        app:layout_constraintEnd_toStartOf="@+id/WeatherInfo"
         app:layout_constraintHorizontal_bias="0.675"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/divider3" />
@@ -242,7 +242,7 @@
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/divider4"
-        app:layout_constraintEnd_toStartOf="@+id/weather"
+        app:layout_constraintEnd_toStartOf="@+id/ClothSection"
         app:layout_constraintHorizontal_bias="0.622"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/weatherTitle"

@@ -1,0 +1,12 @@
+leftRotate
+rightRotate
+openDoor
+closeDoor
+
+HumidityData
+DCFAN
+ClothSection
+WeatherInfo
+enableMotion
+
+btnConnect
