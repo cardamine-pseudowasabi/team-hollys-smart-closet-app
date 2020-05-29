@@ -6,7 +6,11 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewDebug;
 import android.widget.Button;
+import android.widget.CompoundButton;
+import android.widget.Switch;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import app.akexorcist.bluetotohspp.library.BluetoothSPP;
@@ -32,7 +36,54 @@ public class MainActivity extends AppCompatActivity {
 
         bt.setOnDataReceivedListener(new BluetoothSPP.OnDataReceivedListener() { //데이터 수신
             public void onDataReceived(byte[] data, String message) {
-                Toast.makeText(MainActivity.this, message, Toast.LENGTH_SHORT).show();
+                //message
+                //Toast.makeText(MainActivity.this, message, Toast.LENGTH_SHORT).show();
+                String noticetext = "Received data length: ";
+                Toast.makeText(MainActivity.this, noticetext.concat(Integer.toString(message.length())), Toast.LENGTH_SHORT).show();
+
+                TextView HumidityDataTV = findViewById(R.id.HumidityData);
+                TextView dcfanTV = findViewById(R.id.DCFAN);
+                TextView ClothSectionTV = findViewById(R.id.ClothSection);
+                TextView WeatherInfoTV = findViewById(R.id.WeatherInfo);
+
+                String hum_val, tem_val, wea_val;
+                hum_val = tem_val = wea_val = null;
+
+                if(message.length() > 5) {
+                    hum_val = message.substring(message.indexOf("H") + 1, message.indexOf("W"));
+                    HumidityDataTV.setText(hum_val);
+                    int hum_val2 = Integer.parseInt(hum_val.substring(0, hum_val.indexOf(".")));
+                    if (hum_val2 > 70) {
+                        dcfanTV.setText("ON");
+                    } else {
+                        dcfanTV.setText("OFF");
+                    }
+                }
+
+                if(message.length() > 10) {
+                    tem_val = message.substring(message.indexOf("W") + 1, message.indexOf("$"));
+                    wea_val = message.substring(message.indexOf("$") + 1, message.indexOf("#"));
+
+                    WeatherInfoTV.setText(tem_val.concat("\n").concat(wea_val));
+
+                    int temperature = Integer.parseInt(tem_val.substring(0, tem_val.indexOf("\'")));
+
+                    String section_text = null;
+                    if(temperature > 24){
+                        section_text = "여름 옷 구역";
+                    }
+                    else if(temperature > 16 && temperature <= 24){
+                        section_text = "봄/가을 얇은 옷 구역";
+                    }
+                    else if(temperature > 9 && temperature <= 16){
+                        section_text = "봄/가을 두꺼운 옷 구역";
+                    }
+                    else {
+                        section_text = "겨울 옷 구역";
+                    }
+
+                    ClothSectionTV.setText(section_text);
+                }
             }
         });
 
@@ -89,15 +140,43 @@ public class MainActivity extends AppCompatActivity {
     public void setup() {
         Button leftRotateBtn = findViewById(R.id.leftRotate); // CCW Rotate
         Button rightRotateBtn = findViewById(R.id.rightRotate); // CW Rotate
+        Button openDoorBtn = findViewById(R.id.openDoor); // Open Door
+        Button closeDoorBtn = findViewById(R.id.closeDoor); // Close Door
+        Switch enableMotionSwt = findViewById(R.id.enableMotion); // enable Motion detection
 
         leftRotateBtn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                bt.send("left Rotate", true);
+                bt.send("stp_l", true);
             }
         });
+
         rightRotateBtn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                bt.send("right Rotate", true);
+                bt.send("stp_r", true);
+            }
+        });
+
+        openDoorBtn.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                bt.send("srv_o", true);
+            }
+        });
+
+        closeDoorBtn.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                bt.send("srv_c", true);
+            }
+        });
+
+        enableMotionSwt.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(b) {
+                    bt.send("m_ena", true);
+                }
+                else {
+                    bt.send("m_dis", true);
+                }
             }
         });
     }
