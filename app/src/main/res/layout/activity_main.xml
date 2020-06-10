@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/closet5"
-    tools:context="space.codejun.arduinobluetooth.MainActivity">
+    tools:context="team.hollys.smartcloset.MainActivity">
 
     <TextView
         android:id="@+id/WeatherInfo"
