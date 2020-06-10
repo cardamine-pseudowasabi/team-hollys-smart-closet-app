@@ -83,19 +83,19 @@ public class MainActivity extends AppCompatActivity {
 
                     String section_text = null;
                     if(temperature > 24){
-                        section_text = "여름 옷 구역";
+                        section_text = "여름 옷 구역"; // summer
                         ClothSectionType = 1;
                     }
                     else if(temperature > 16 && temperature <= 24){
-                        section_text = "봄/가을 얇은 옷 구역";
+                        section_text = "봄/가을 얇은 옷 구역"; // spring
                         ClothSectionType = 2;
                     }
                     else if(temperature > 9 && temperature <= 16){
-                        section_text = "봄/가을 두꺼운 옷 구역";
+                        section_text = "봄/가을 두꺼운 옷 구역"; // fall
                         ClothSectionType = 3;
                     }
                     else {
-                        section_text = "겨울 옷 구역";
+                        section_text = "겨울 옷 구역"; // winter
                         ClothSectionType = 4;
                     }
 
