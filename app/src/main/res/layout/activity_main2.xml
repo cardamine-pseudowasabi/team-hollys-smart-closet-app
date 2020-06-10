@@ -7,19 +7,19 @@
     tools:context=".Main2Activity">
 
     <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="187.5dp"
-        android:layout_height="225dp"
+        android:id="@+id/up_image"
+        android:layout_width="125dp"
+        android:layout_height="150dp"
         android:layout_marginBottom="36dp"
-        app:layout_constraintBottom_toTopOf="@+id/imageView6"
+        app:layout_constraintBottom_toTopOf="@+id/down_image"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/imageview_init" />
 
     <ImageView
-        android:id="@+id/imageView6"
-        android:layout_width="187.5dp"
-        android:layout_height="225dp"
+        android:id="@+id/down_image"
+        android:layout_width="125dp"
+        android:layout_height="150dp"
         android:layout_marginBottom="20dp"
         app:layout_constraintBottom_toTopOf="@+id/button"
         app:layout_constraintEnd_toEndOf="parent"
@@ -30,34 +30,33 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="24dp"
         android:text="오늘의 추천 옷 구역"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/imageView5"
-        app:layout_constraintEnd_toStartOf="@+id/textView2"
-        app:layout_constraintHorizontal_bias="0.354"
+        app:layout_constraintBottom_toTopOf="@+id/ClothSection"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.495" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
+        android:id="@+id/ClothSection"
+        android:layout_width="191dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="112dp"
+        android:layout_marginBottom="24dp"
         android:text="-"
+        android:textAlignment="center"
         android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/imageView5"
+        app:layout_constraintBottom_toTopOf="@+id/up_image"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.495" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="32dp"
         android:text="다른 추천 보기"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
