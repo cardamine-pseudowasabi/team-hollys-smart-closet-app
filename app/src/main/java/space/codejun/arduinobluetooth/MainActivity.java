@@ -2,6 +2,7 @@ package space.codejun.arduinobluetooth;
 
 import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -21,10 +22,22 @@ public class MainActivity extends AppCompatActivity {
 
     private BluetoothSPP bt;
 
+    // Main2Activity에서 접근하기 위함
+    // 참조한 블로그는 다음과 같음
+    // https://jhshjs.tistory.com/entry/%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C-Activity%EC%97%90%EC%84%9C-%EB%8B%A4%EB%A5%B8-Activity-%EB%B3%80%EC%88%98-%EC%A0%91%EA%B7%BC%ED%95%98%EA%B8%B0
+    public static Context context_main;
+    public String ClothSectionVal;
+    public int ClothSectionType;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        context_main = this;
+
+        ClothSectionVal = "라랄라라랄";
+
         bt = new BluetoothSPP(this); //Initializing
 
         if (!bt.isBluetoothAvailable()) { //블루투스 사용 불가
@@ -71,18 +84,23 @@ public class MainActivity extends AppCompatActivity {
                     String section_text = null;
                     if(temperature > 24){
                         section_text = "여름 옷 구역";
+                        ClothSectionType = 1;
                     }
                     else if(temperature > 16 && temperature <= 24){
                         section_text = "봄/가을 얇은 옷 구역";
+                        ClothSectionType = 2;
                     }
                     else if(temperature > 9 && temperature <= 16){
                         section_text = "봄/가을 두꺼운 옷 구역";
+                        ClothSectionType = 3;
                     }
                     else {
                         section_text = "겨울 옷 구역";
+                        ClothSectionType = 4;
                     }
 
                     ClothSectionTV.setText(section_text);
+                    ClothSectionVal = section_text;
                 }
             }
         });

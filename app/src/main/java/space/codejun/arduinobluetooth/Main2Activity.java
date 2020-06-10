@@ -12,6 +12,8 @@ public class Main2Activity extends AppCompatActivity {
         setContentView(R.layout.activity_main2);
 
         TextView ClothSectionTV2 = findViewById(R.id.ClothSection);
-        //ClothSectionTV2.setText("봄/가을 두꺼운 옷 구역");
+
+        String tempText = ((MainActivity)MainActivity.context_main).ClothSectionVal;
+        ClothSectionTV2.setText(tempText);
     }
 }
