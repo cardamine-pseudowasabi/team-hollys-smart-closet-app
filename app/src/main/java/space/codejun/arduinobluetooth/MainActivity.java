@@ -143,6 +143,7 @@ public class MainActivity extends AppCompatActivity {
         Button openDoorBtn = findViewById(R.id.openDoor); // Open Door
         Button closeDoorBtn = findViewById(R.id.closeDoor); // Close Door
         Switch enableMotionSwt = findViewById(R.id.enableMotion); // enable Motion detection
+        Button recommendClothBtn = findViewById(R.id.recommendCloth); // recommend Cloth
 
         leftRotateBtn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -179,6 +180,18 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+
+        recommendClothBtn.setOnClickListener(
+                new View.OnClickListener(){
+                    @Override
+                    public void onClick(View view){
+                        Intent intent2 = new Intent(
+                                getApplicationContext(),
+                                Main2Activity.class);
+                        startActivity(intent2);
+                    }
+                }
+        );
     }
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {

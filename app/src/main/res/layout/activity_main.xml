@@ -63,50 +63,56 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/rightRotate"
-        android:layout_width="92dp"
-        android:layout_height="41dp"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="52dp"
-        android:layout_marginEnd="65dp"
-        android:text="구역 ▶"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.758"
-        app:layout_constraintStart_toEndOf="@+id/leftRotate"
-        app:layout_constraintTop_toBottomOf="@+id/divider5" />
-
-    <Button
         android:id="@+id/openDoor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="60dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginBottom="16dp"
         android:text="Open Door"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/leftRotate" />
+        app:layout_constraintBottom_toTopOf="@+id/textView6"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/leftRotate"
         android:layout_width="92dp"
         android:layout_height="41dp"
-        android:layout_marginStart="65dp"
-        android:layout_marginTop="52dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="8dp"
         android:text="◀ 구역"
+        app:layout_constraintBottom_toTopOf="@+id/openDoor"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/divider5" />
+        app:layout_constraintTop_toBottomOf="@+id/divider5"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/rightRotate"
+        android:layout_width="92dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="65dp"
+        android:layout_marginBottom="8dp"
+        android:text="구역 ▶"
+        app:layout_constraintBottom_toTopOf="@+id/closeDoor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.758"
+        app:layout_constraintStart_toEndOf="@+id/leftRotate"
+        app:layout_constraintTop_toBottomOf="@+id/divider5"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/closeDoor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
-        android:layout_marginTop="30dp"
         android:layout_marginEnd="60dp"
+        android:layout_marginBottom="16dp"
         android:text="Close Door"
+        app:layout_constraintBottom_toTopOf="@+id/textView6"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.916"
-        app:layout_constraintStart_toEndOf="@+id/openDoor"
-        app:layout_constraintTop_toBottomOf="@+id/rightRotate" />
+        app:layout_constraintStart_toEndOf="@+id/openDoor" />
 
     <TextView
         android:id="@+id/AppTitle"
@@ -201,9 +207,7 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/divider5"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
         android:id="@+id/skku_symbol"
@@ -236,17 +240,15 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="40dp"
-        android:layout_marginBottom="32dp"
         android:text="추천 옷 구역"
         android:textColor="@android:color/black"
         android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/divider4"
+        app:layout_constraintBottom_toTopOf="@+id/recommendCloth"
         app:layout_constraintEnd_toStartOf="@+id/ClothSection"
         app:layout_constraintHorizontal_bias="0.622"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/weatherTitle"
-        app:layout_constraintVertical_bias="0.303" />
+        app:layout_constraintTop_toBottomOf="@+id/weatherTitle" />
 
     <ImageView
         android:id="@+id/imageView3"
@@ -287,12 +289,12 @@
         android:id="@+id/divider5"
         android:layout_width="412dp"
         android:layout_height="1dp"
-        android:layout_marginBottom="272dp"
+        android:layout_marginBottom="200dp"
         android:background="?android:attr/listDivider"
         android:foreground="@android:color/transparent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent" />
 
     <android.support.constraint.Barrier
@@ -308,28 +310,16 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_begin="20dp" />
 
-    <TextView
-        android:id="@+id/textView12"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:text="(기능 추가 예정)"
-        app:layout_constraintBottom_toTopOf="@+id/textView6"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.304"
-        app:layout_constraintStart_toEndOf="@+id/textView11"
-        app:layout_constraintTop_toBottomOf="@+id/closeDoor"
-        app:layout_constraintVertical_bias="0.483" />
-
-    <TextView
-        android:id="@+id/textView11"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="84dp"
-        android:text="현재 옷 구역"
-        app:layout_constraintBottom_toTopOf="@+id/textView6"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/openDoor"
-        app:layout_constraintVertical_bias="0.483" />
+    <Button
+        android:id="@+id/recommendCloth"
+        android:layout_width="99dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="55dp"
+        android:layout_marginBottom="8dp"
+        android:text="추천 옷 확인"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/divider4"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
