@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
 
         context_main = this;
 
-        ClothSectionVal = "라랄라라랄";
+        //ClothSectionVal = "라랄라라랄";
 
         bt = new BluetoothSPP(this); //Initializing
 
@@ -50,8 +50,10 @@ public class MainActivity extends AppCompatActivity {
             public void onDataReceived(byte[] data, String message) {
                 //message
                 //Toast.makeText(MainActivity.this, message, Toast.LENGTH_SHORT).show();
-                String noticetext = "Received data length: ";
-                Toast.makeText(MainActivity.this, noticetext.concat(Integer.toString(message.length())), Toast.LENGTH_SHORT).show();
+
+                // 디버깅을 위한 용도, 수신한 데이터의 길이를 Toast 메세지로 출력
+                /*String noticetext = "Received data length: ";
+                Toast.makeText(MainActivity.this, noticetext.concat(Integer.toString(message.length())), Toast.LENGTH_SHORT).show();*/
 
                 TextView HumidityDataTV = findViewById(R.id.HumidityData);
                 TextView dcfanTV = findViewById(R.id.DCFAN);

@@ -76,8 +76,8 @@ public class Main2Activity extends AppCompatActivity {
         ClothSectionVal = ((MainActivity)MainActivity.context_main).ClothSectionVal;
         ClothSectionType = ((MainActivity)MainActivity.context_main).ClothSectionType;
 
-        ClothSectionVal = "봄/가을 얇은 옷 구역"; // 임시
-        ClothSectionType = 2; // 임시
+        //ClothSectionVal = "봄/가을 얇은 옷 구역"; // 임시
+        //ClothSectionType = 2; // 임시
 
         ClothSectionTV2.setText(ClothSectionVal);
 
